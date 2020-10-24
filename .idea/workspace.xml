@@ -10,17 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b74904b0-ba65-4217-b623-ddd37d0732c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/setupTests.js" beforeDir="false" />
-    </list>
+    <list default="true" id="b74904b0-ba65-4217-b623-ddd37d0732c5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +37,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\senar\OneDrive\Documents\Projects\chat-app\client\src" />
+      <recent name="C:\Users\senar\OneDrive\Documents\Projects\chat-app\client\pages" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="App.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/client/src/App.js" working-dir="$PROJECT_DIR$/client/src">
       <method v="2" />
@@ -68,7 +64,7 @@
       <workItem from="1603519675207" duration="410000" />
       <workItem from="1603520232852" duration="21000" />
       <workItem from="1603531596282" duration="2285000" />
-      <workItem from="1603535175802" duration="14586000" />
+      <workItem from="1603535175802" duration="24760000" />
     </task>
     <servers />
   </component>

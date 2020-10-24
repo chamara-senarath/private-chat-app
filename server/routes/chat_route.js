@@ -11,7 +11,7 @@ router.get('/user_list',auth,async (req, res) => {
 })
 
 router.get('/load_chat',auth,(async(req, res) => {
-    const userName = req.user.userName
+    const userName = req.user.username
     const partnerName = req.query.partnerName
     const msgList = await Chat.find( {
         $or:[
