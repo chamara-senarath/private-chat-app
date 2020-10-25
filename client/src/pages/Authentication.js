@@ -55,6 +55,8 @@ function Authentication() {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        setUsername('')
+        setPassword('')
     };
 
     const redirectToHome = (result)=>{
