@@ -64,7 +64,7 @@ function ChatScreen(){
             },20)
 
         })
-    })
+    },[])
     const sendMsg = (msgList)=>{
         if(msg===''){
             return
