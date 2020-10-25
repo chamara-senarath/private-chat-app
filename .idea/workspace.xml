@@ -10,7 +10,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b74904b0-ba65-4217-b623-ddd37d0732c5" name="Default Changelist" comment="" />
+    <list default="true" id="b74904b0-ba65-4217-b623-ddd37d0732c5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/controllers/authentication_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/chat_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatView.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/FriendList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FriendList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/ChatScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/ChatScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/authentication_route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/authentication_route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/chat_route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/chat_route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/socket_handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/socket_handler.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +38,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jJQNErqqwGajlKkRNzMQUE7hYo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -36,6 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -64,7 +79,10 @@
       <workItem from="1603519675207" duration="410000" />
       <workItem from="1603520232852" duration="21000" />
       <workItem from="1603531596282" duration="2285000" />
-      <workItem from="1603535175802" duration="24760000" />
+      <workItem from="1603535175802" duration="25401000" />
+      <workItem from="1603595377125" duration="2438000" />
+      <workItem from="1603598681602" duration="4577000" />
+      <workItem from="1603603362117" duration="5700000" />
     </task>
     <servers />
   </component>
@@ -82,6 +100,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/client" />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603519769390">
@@ -108,9 +131,17 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1899" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603531736430" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1603532025502">
+    <state x="461" y="170" key="SettingsEditor" timestamp="1603595397544">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1603532025502" />
+    <state x="461" y="170" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1603595397544" />
+    <state x="616" y="243" key="run.anything.popup" timestamp="1603605451324">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1603605451324" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1603604774463">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1603604774463" />
   </component>
 </project>

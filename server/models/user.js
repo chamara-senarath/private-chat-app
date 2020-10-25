@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema({
     socketID:{
         type: String,
     },
+    active:{
+        type:Boolean,
+        default:false
+    },
     tokens: [{
         token: {
             type: String,

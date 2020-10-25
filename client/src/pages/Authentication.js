@@ -111,7 +111,7 @@ function Authentication() {
                     </Grid>
                 </Grid>
                 <Grid item>
-                    <Button onClick={formName=='login'?handleLogin:handleRegister} variant="contained" color="primary">
+                    <Button onClick={formName==='login'?handleLogin:handleRegister} variant="contained" color="primary">
                         {formName.toUpperCase()}
                     </Button>
                 </Grid>

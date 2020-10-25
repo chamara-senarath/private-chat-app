@@ -33,23 +33,22 @@ function ChatScreen(){
                 'x-auth': token,
             }
         })
-        console.log('hit',result)
         setMsgList(result.data)
     }
 
     const selectUser = async (username)=>{
         setReceiver(username)
         await loadMsgList(username)
+        await loadUserList()
     }
 
     const handleIncomingMsg = (data)=>{
         if(data.sender === receiver){
             let modifiedMsgList = [...msgList,data]
             setMsgList(modifiedMsgList)
+            socket.emit('msg_seen',{chatID:data.chatID})
         }
-        else{
-
-        }
+        loadUserList()
     }
 
     useEffect( ()=>{
@@ -61,13 +60,19 @@ function ChatScreen(){
     },[])
     useEffect(()=>{
         socket.on('message',(data)=>{
-            console.log('new msg',data.msg)
             handleIncomingMsg(data)
+        })
+        socket.on('reload-user-list',()=>{
+            setTimeout(()=>{
+                loadUserList()
+            },1000)
+
         })
     })
     const sendMsg = ()=>{
         socket.emit('message',{senderName:sender,receiverName:receiver,msg:msg}
         )
+        loadMsgList()
     }
     return(
         <div>
@@ -82,7 +87,6 @@ function ChatScreen(){
                     <button onClick={sendMsg}>Click Me</button>
                 </Grid>
             </Grid>
-
         </div>
     )
 }
