@@ -4,6 +4,7 @@ import axios from 'axios'
 import FriendList from "../components/FriendList";
 import ChatView from "../components/ChatView";
 import {Grid} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 let socket
 
 function ChatScreen(){
@@ -27,7 +28,9 @@ function ChatScreen(){
 
     const selectUser = async (username)=>{
         setReceiver(username)
-        await loadUserList()
+        setTimeout(async ()=>{
+            await loadUserList()
+        },20)
     }
 
     // const handleIncomingMsg = (data)=>{
@@ -46,31 +49,55 @@ function ChatScreen(){
     },[])
     useEffect(()=>{
         socket.on('message',async (data)=>{
-            await loadUserList()
-            setNewMsgSender(data.sender)
+                setNewMsgSender(data.sender)
+                setTimeout(()=>{
+                    setNewMsgSender('')
+                },50)
+                setTimeout(async ()=>{
+                    await loadUserList()
+                },20)
         })
         socket.on('reload-user-list',()=>{
             setTimeout(async ()=>{
                 await loadUserList()
-            },1000)
+            },20)
 
         })
     })
     const sendMsg = (msgList)=>{
+        if(msg===''){
+            return
+        }
         socket.emit('message',{senderName:sender,receiverName:receiver,msg:msg}
         )
         msgList.push({senderName:sender,receiverName:receiver,msg:msg})
         setMsg('')
     }
     return(
-            <Grid container spacing={3}>
-                <Grid item>
-                    <FriendList friendList={friendList} selectUser={selectUser} />
-                </Grid>
-                <Grid item>
-                    <ChatView setMsg={setMsg} msg={msg} sendMsg={sendMsg} receiver={receiver} newMsgSender={newMsgSender}/>
-                </Grid>
-            </Grid>
+
+                <div>
+                    {
+                        friendList.length===0&&
+                        <Grid style={{minHeight: '70vh',minWidth:'70vw'}} container justify="center"
+                              alignItems="center" >
+                            <Typography variant="h3">No Users in the System</Typography>
+                        </Grid>
+                    }
+                    {
+                        friendList.length!==0&&
+                        <Grid container spacing={6} style={{
+                            padding:'30px'
+                        }}>
+                            <Grid item>
+                                <FriendList friendList={friendList} selectUser={selectUser} />
+                            </Grid>
+                            <Grid item>
+                                <ChatView setMsg={setMsg} msg={msg} sendMsg={sendMsg} receiver={receiver} newMsgSender={newMsgSender}/>
+                            </Grid>
+                        </Grid>
+                    }
+                </div>
+
 
     )
 }
