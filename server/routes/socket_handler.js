@@ -10,7 +10,7 @@ class SocketHandler {
             let socketObj = socket
             const userID = socket.request._query.userID
             await this.updateUser(userID,socket.id)
-            socket.emit('reload-user-list')
+            socket.broadcast.emit('reload-user-list')
             socket.on('message',async(data)=>{
                 await this.sendMsg(data.senderName,data.receiverName,data.msg)
             })

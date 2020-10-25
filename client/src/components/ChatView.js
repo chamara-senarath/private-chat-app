@@ -25,7 +25,6 @@ const ChatView = ({setMsg,sendMsg,msg, receiver, newMsgSender}) => {
     const [msgList,setMsgList] = useState([])
 
     const loadMsgList = async (username)=>{
-        console.log(username)
         const token = localStorage.getItem('token')
         let result = await axios.get('http://localhost:5000/load_chat',{
             params:{
@@ -42,7 +41,6 @@ const ChatView = ({setMsg,sendMsg,msg, receiver, newMsgSender}) => {
         loadMsgList(receiver).then(()=>{
             scrollToBottom()
         })
-
     },[receiver])
 
     useEffect(()=>{
@@ -61,10 +59,11 @@ const ChatView = ({setMsg,sendMsg,msg, receiver, newMsgSender}) => {
         },20)
     }
 
-    const handleSubmit = ()=>{
-        sendMsg(msgList)
-        scrollToBottom()
-
+    const handleSubmit = (e)=>{
+        if(e.type==='click' || (e.type==='keydown' && e.key==='Enter')){
+            sendMsg(msgList)
+            scrollToBottom()
+        }
     }
 
     return (
@@ -99,10 +98,10 @@ const ChatView = ({setMsg,sendMsg,msg, receiver, newMsgSender}) => {
                                    return(
                                        <Grid  key={index} item
                                        >
-                                           <Typography style={{
+                                           <div style={{
                                                textAlign:`${msg.sender===receiver?'left':'right'}`,
                                                marginTop:'10px',
-                                           }}><Chip color={msg.sender===receiver?'secondary':'primary'} label={msg.msg}/></Typography>
+                                           }}><Chip color={msg.sender===receiver?'secondary':'primary'} label={msg.msg}/></div>
 
                                        </Grid>
                                    )
@@ -113,8 +112,10 @@ const ChatView = ({setMsg,sendMsg,msg, receiver, newMsgSender}) => {
 
                        <Grid item>
                            <TextField           placeholder="Type your text here"
-                                                variant="outlined" style={{width: '75vw'}} value={msg} onChange={e=>setMsg(e.target.value)}> </TextField>
-                           <IconButton  color="primary" onClick={handleSubmit}><SendIcon/></IconButton>
+                                                variant="outlined" style={{width: '75vw'}} value={msg} onChange={e=>setMsg(e.target.value)}
+                                                onKeyDown={handleSubmit}
+                           > </TextField>
+                           <IconButton  color="primary"  onClick={handleSubmit}><SendIcon/></IconButton>
                        </Grid>
                    </Grid>
                </div>
@@ -123,7 +124,7 @@ const ChatView = ({setMsg,sendMsg,msg, receiver, newMsgSender}) => {
                msgList.length===0 &&
                <Grid style={{minHeight: '70vh',minWidth:'70vw'}} container justify="center"
                      alignItems="center" >
-                  <Typography variant="h3">No Messages</Typography>
+                  <Typography variant="h3">No Messages. Select a different User</Typography>
                </Grid>
            }
        </div>

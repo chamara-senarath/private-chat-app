@@ -46,6 +46,7 @@ function ChatScreen(){
         let uid = localStorage.getItem('userID')
         socket = io.connect('http://localhost:5000', { query: `userID=${uid}` })
 
+
     },[])
     useEffect(()=>{
         socket.on('message',async (data)=>{

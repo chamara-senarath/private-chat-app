@@ -34,7 +34,6 @@ const loadChat = async(req, res) => {
             { $and:[ {'receiver':partnerName}, {'sender':userName} ]}
         ]
     })
-        console.log(msgList)
     res.status(200).send(msgList)
 
 }

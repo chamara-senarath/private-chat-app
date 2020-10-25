@@ -14,6 +14,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import LockIcon from '@material-ui/icons/Lock';
 
 import axios from 'axios'
+import Alert from '@material-ui/lab/Alert';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -46,6 +47,7 @@ TabPanel.propTypes = {
 
 function Authentication() {
     const history = useHistory();
+    const [errorMsg,setErrorMsg] = useState('')
 
     const [value, setValue] = useState(0);
     const [username,setUsername] = useState('')
@@ -64,7 +66,12 @@ function Authentication() {
             localStorage.setItem('token',result.data.token)
             localStorage.setItem('userID',result.data.user_id)
             localStorage.setItem('username',result.data.username)
-            history.push("/home");
+            if(result.status===200){
+                history.push("/home");
+            }
+            else{
+                setErrorMsg(result.data.error)
+            }
         }
         catch (e){
             console.log(e)
@@ -78,7 +85,12 @@ function Authentication() {
                 username,
                 password
             })
-            console.log(result)
+            if(result.status===200){
+                history.push("/home");
+            }
+            else{
+                setErrorMsg(result.data.error)
+            }
         }
         catch (e){
             console.log(e)
@@ -124,6 +136,10 @@ function Authentication() {
         <Grid container  direction="column"
               justify="center"
               alignItems="center" style={{minHeight: '100vh'}}>
+            <Grid item>
+                {errorMsg!=='' && <Alert severity="error">{errorMsg}</Alert>}
+
+            </Grid>
             <Grid item>
                         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                             <Tab label="Login" />

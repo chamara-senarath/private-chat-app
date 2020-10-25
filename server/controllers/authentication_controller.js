@@ -11,7 +11,14 @@ const userRegister = async (req,res)=>{
         res.status(200).send(token)
     }
     catch (e){
-        console.log(e)
+        console.log(e.code)
+        if(e.code===11000){
+            res.status(226).send({error:'Username is already taken. Please enter another username'})
+        }
+        else{
+            res.status(206).send({error:e.toString()})
+
+        }
     }
 }
 
@@ -28,7 +35,7 @@ const userLogin = async (req, res) => {
             token: token,
         });
     } catch (error) {
-        res.status(400).send(error.toString());
+        res.status(206).send({error:error.toString()})
     }
 }
 
