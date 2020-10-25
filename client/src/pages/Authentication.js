@@ -57,17 +57,22 @@ function Authentication() {
         setValue(newValue);
     };
 
+    const redirectToHome = (result)=>{
+        localStorage.setItem('token',result.data.token)
+        localStorage.setItem('userID',result.data.user_id)
+        localStorage.setItem('username',result.data.username)
+        history.push("/home");
+    }
+
     const handleLogin = async () => {
         try{
             let result = await axios.post("http://localhost:5000/login",{
                 username:username,
                 password:password
             })
-            localStorage.setItem('token',result.data.token)
-            localStorage.setItem('userID',result.data.user_id)
-            localStorage.setItem('username',result.data.username)
+
             if(result.status===200){
-                history.push("/home");
+                redirectToHome(result)
             }
             else{
                 setErrorMsg(result.data.error)
@@ -86,7 +91,7 @@ function Authentication() {
                 password
             })
             if(result.status===200){
-                history.push("/home");
+                redirectToHome(result)
             }
             else{
                 setErrorMsg(result.data.error)

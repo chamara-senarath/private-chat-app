@@ -8,7 +8,11 @@ const userRegister = async (req,res)=>{
     try{
         await user.save()
         const token = await user.generateAuthToken()
-        res.status(200).send(token)
+        res.status(200).send({
+            user_id: user._id,
+            username:user.username,
+            token: token,
+        })
     }
     catch (e){
         console.log(e.code)
