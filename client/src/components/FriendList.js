@@ -5,9 +5,9 @@ import Button from '@material-ui/core/Button';
 const FriendList = ({friendList,selectUser}) => {
     return (
         <Grid container direction="column">
-            {friendList.map((user,index)=>{
+            {friendList.map((user)=>{
                 return(
-                    <Grid item key={index}>
+                    <Grid item key={user.username}>
                         <Button onClick={()=>{selectUser(user.username)}}> {user.username} {user.unread_count} {user.active?'online':'offline'}</Button>
                     </Grid>
                 )
